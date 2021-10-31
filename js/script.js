@@ -5,7 +5,7 @@ document.getElementById('test-button').addEventListener('click', function(){
   });
 */
 
-const { active } = require("browser-sync");
+//const { active } = require("browser-sync");
 
 const titleClickHandler = function(event){
   const clickedElement = this;
@@ -289,6 +289,16 @@ function calculateTagsParams(tags){
       params.min = tags[tag];
     }
   }
+
+  const normalizedCount = count - params.min;
+
+  const normalizedMax = params.max - params.min;
+
+  const percentage = normalizedCount / normalizedMax;
+
+  const classNumber = Math.floor( percentage * (optCloudClassCount - 1) + 1 );
+
+  Math.floor( classNumber * (optCloudClassPrefix - 1) + 1);
 
   return params;
 }
